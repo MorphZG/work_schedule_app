@@ -1,0 +1,23 @@
+.prettierrc
+
+# Sensitive configuration files
+config.js
+database.js
+secrets.js
+api_keys.js
+id_rsa
+id_rsa.pub
+
+# Build output and logs
+build
+dist
+public
+logs
+
+# Environment variables
+.env
+
+# Local development and IDE files (optional)
+node_modules
+.vscode
+.idea
