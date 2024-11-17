@@ -1,8 +1,8 @@
 .prettierrc
 
 # Sensitive configuration files
+#database.js
 config.js
-database.js
 secrets.js
 api_keys.js
 id_rsa
