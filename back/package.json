@@ -1,0 +1,37 @@
+{
+  "name": "work_schedule_backend",
+  "version": "1.0.0",
+  "description": "web app za upravljanje radom u smjenama",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon app.js",
+    "lint": "npx eslint",
+    "inspect-config": "npx eslint --inspect-config",
+    "test": "vitest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MorphZG/work_schedule_app"
+  },
+  "author": "Zoran Topic",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MorphZG/work_schedule_app"
+  },
+  "homepage": "https://github.com/MorphZG/work_schedule_app#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "mongodb": "^6.10.0",
+    "mongoose": "^8.7.3"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.14.0",
+    "eslint": "^9.14.0",
+    "globals": "^15.12.0",
+    "nodemon": "^3.1.7",
+    "vitest": "^2.1.4"
+  }
+}
