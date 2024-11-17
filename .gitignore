@@ -15,7 +15,7 @@ public
 logs
 
 # Environment variables
-.env
+.env*
 
 # Local development and IDE files (optional)
 node_modules
