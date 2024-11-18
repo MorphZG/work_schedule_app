@@ -18,18 +18,15 @@ connect_db();
 
 // Routes
 // base routes
-app.use("/api/employees", employeeRoutes); // 
+app.use("/api/employees", employeeRoutes); //
 app.use("/api/schedules", scheduleRoutes);
 app.use("/api/statistics", statsRoutes);
 
-
-
-
 // Basic route for testing the API
 app.get("/", (req, res) => {
-    res.send("success!!");
+  res.send("success!!");
 });
 
 app.listen(port, () => {
-    console.log(`waiting for requests on port: ${port}`);
+  console.log(`waiting for requests on port: ${port}`);
 });

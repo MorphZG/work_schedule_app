@@ -1,5 +1,12 @@
 import express from "express";
-import { getOverallStats, getEmployeeStats, getScheduleStats, createStats, updateStats, deleteStats } from "../controllers/statsController.js";
+import {
+  getOverallStats,
+  getEmployeeStats,
+  getScheduleStats,
+  createStats,
+  updateStats,
+  deleteStats,
+} from "../controllers/statsController.js";
 
 const router = express.Router();
 

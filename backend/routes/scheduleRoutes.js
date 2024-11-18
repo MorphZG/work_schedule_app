@@ -1,5 +1,11 @@
 import express from "express";
-import { getAllSchedules, getScheduleById, createSchedule, updateSchedule, deleteSchedule } from "../controllers/scheduleController.js";
+import {
+  getAllSchedules,
+  getScheduleById,
+  createSchedule,
+  updateSchedule,
+  deleteSchedule,
+} from "../controllers/scheduleController.js";
 
 const router = express.Router();
 

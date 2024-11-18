@@ -179,6 +179,7 @@ GitHub Flow is ideal for projects where you want to maintain a stable `main` bra
 -   Write clear, concise, and self-documenting code.
 
     ```bash
+    npm run format
     npm run lint
     ```
 -   Open the `package.json` file and look at the list of available scripts. To run the script, simply run the following command:

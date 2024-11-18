@@ -17,7 +17,7 @@ export const getScheduleById = async (req, res) => {
     if (schedule) {
       res.json(schedule);
     } else {
-      res.status(404).json({ message: 'Schedule not found' });
+      res.status(404).json({ message: "Schedule not found" });
     }
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -38,7 +38,11 @@ export const createSchedule = async (req, res) => {
 // Update a schedule
 export const updateSchedule = async (req, res) => {
   try {
-    const updatedSchedule = await Schedule.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    const updatedSchedule = await Schedule.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      { new: true },
+    );
     res.json(updatedSchedule);
   } catch (error) {
     res.status(400).json({ message: error.message });
@@ -49,7 +53,7 @@ export const updateSchedule = async (req, res) => {
 export const deleteSchedule = async (req, res) => {
   try {
     await Schedule.findByIdAndDelete(req.params.id);
-    res.json({ message: 'Schedule deleted successfully' });
+    res.json({ message: "Schedule deleted successfully" });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

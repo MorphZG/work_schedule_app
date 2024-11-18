@@ -44,7 +44,11 @@ export const createStats = async (req, res) => {
 // Update statistics
 export const updateStats = async (req, res) => {
   try {
-    const updatedStats = await Statistics.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    const updatedStats = await Statistics.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      { new: true },
+    );
     res.json(updatedStats);
   } catch (error) {
     res.status(400).json({ message: error.message });
@@ -55,7 +59,7 @@ export const updateStats = async (req, res) => {
 export const deleteStats = async (req, res) => {
   try {
     await Statistics.findByIdAndDelete(req.params.id);
-    res.json({ message: 'Statistics deleted successfully' });
+    res.json({ message: "Statistics deleted successfully" });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

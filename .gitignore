@@ -1,5 +1,3 @@
-.prettierrc
-
 # Sensitive configuration files
 #database.js
 config.js
