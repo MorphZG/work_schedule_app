@@ -36,7 +36,7 @@ This creates a copy of the repository under your GitHub account.
 -   Clone the Forked Repository:
 
     ```bash
-    git clone https://github.com/MorphZG/work_schedule_app/
+    git clone https://github.com/<your_username>/work_schedule_app.git/
     cd work_schedule_app
     ```
 
