@@ -1,132 +1,140 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Vite + React</title>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="module" src="/src/main.jsx"></script>
 
+        <h1>Employee Schedule App - API Test</h1>
 
-    <h1>Employee Schedule App - API Test</h1>
-    
-    <button onclick="createEmployee()">Create Employee</button>
-    <button onclick="getAllEmployees()">Get All Employees</button>
-    <button onclick="getEmployeeById()">Get Employee by ID</button>
-    <button onclick="updateEmployee()">Update Employee</button>
-    <button onclick="deleteEmployee()">Delete Employee</button>
-    <button onclick="getEmployeesByPreference()">Get Employees by Preference</button>
+        <div class="btn_container">
+            <button onclick="createEmployee()">Create Employee</button>
+            <button onclick="getAllEmployees()">Get All Employees</button>
+            <button onclick="getEmployeeById()">Get Employee by ID</button>
+            <button onclick="updateEmployee()">Update Employee</button>
+            <button onclick="deleteEmployee()">Delete Employee</button>
+            <button onclick="getEmployeesByPreference()">
+                Get Employees by Preference
+            </button>
+        </div>
 
-    <script>
-        const apiUrl = "http://localhost:3000/api/employees"; // Adjust according to your server setup
+        <script>
+            const apiUrl = "http://localhost:5173/api/employees"; // Adjust according to your server setup
 
-        async function createEmployee() {
-            const employeeData = {
-                fName: "John",
-                lName: "Doe",
-                email: "john.doe@example.com",
-                cellphone: "1234567890",
-                preference: {
-                    dayOff: "Ponedeljak",
-                    preferedShift: "prva"
-                }
-            };
-
-            try {
-                const response = await fetch(apiUrl, {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
+            async function createEmployee() {
+                const employeeData = {
+                    fName: "John",
+                    lName: "Doe",
+                    email: "john.doe@example.com",
+                    cellphone: "1234567890",
+                    preference: {
+                        dayOff: "Ponedeljak",
+                        preferedShift: "prva",
                     },
-                    body: JSON.stringify(employeeData)
-                });
-                const data = await response.json();
-                console.log("Employee Created:", data);
-            } catch (error) {
-                console.error("Error creating employee:", error);
-            }
-        }
+                };
 
-        async function getAllEmployees() {
-            try {
-                const response = await fetch(apiUrl);
-                const data = await response.json();
-                console.log("All Employees:", data);
-            } catch (error) {
-                console.error("Error fetching employees:", error);
-            }
-        }
-
-        async function getEmployeeById() {
-            const employeeId = prompt("Enter Employee ID:");
-            try {
-                const response = await fetch(`${apiUrl}/${employeeId}`);
-                const data = await response.json();
-                console.log("Employee by ID:", data);
-            } catch (error) {
-                console.error("Error fetching employee:", error);
-            }
-        }
-
-        async function updateEmployee() {
-            const employeeId = prompt("Enter Employee ID to Update:");
-            const updatedData = {
-                fName: "Jane",
-                lName: "Smith",
-                email: "jane.smith@example.com",
-                cellphone: "0987654321",
-                preference: {
-                    dayOff: "Petak",
-                    preferedShift: "druga"
+                try {
+                    const response = await fetch(apiUrl, {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify(employeeData),
+                    });
+                    const data = await response.json();
+                    console.log("Employee Created:", data);
+                } catch (error) {
+                    console.error("Error creating employee:", error);
                 }
-            };
+            }
 
-            try {
-                const response = await fetch(`${apiUrl}/${employeeId}`, {
-                    method: "PUT",
-                    headers: {
-                        "Content-Type": "application/json"
+            async function getAllEmployees() {
+                try {
+                    const response = await fetch(apiUrl);
+                    const data = await response.json();
+                    console.log("All Employees:", data);
+                } catch (error) {
+                    console.error("Error fetching employees:", error);
+                }
+            }
+
+            async function getEmployeeById() {
+                const employeeId = prompt("Enter Employee ID:");
+                try {
+                    const response = await fetch(`${apiUrl}/${employeeId}`);
+                    const data = await response.json();
+                    console.log("Employee by ID:", data);
+                } catch (error) {
+                    console.error("Error fetching employee:", error);
+                }
+            }
+
+            async function updateEmployee() {
+                const employeeId = prompt("Enter Employee ID to Update:");
+                const updatedData = {
+                    fName: "Jane",
+                    lName: "Smith",
+                    email: "jane.smith@example.com",
+                    cellphone: "0987654321",
+                    preference: {
+                        dayOff: "Petak",
+                        preferedShift: "druga",
                     },
-                    body: JSON.stringify(updatedData)
-                });
-                const data = await response.json();
-                console.log("Employee Updated:", data);
-            } catch (error) {
-                console.error("Error updating employee:", error);
+                };
+
+                try {
+                    const response = await fetch(`${apiUrl}/${employeeId}`, {
+                        method: "PUT",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify(updatedData),
+                    });
+                    const data = await response.json();
+                    console.log("Employee Updated:", data);
+                } catch (error) {
+                    console.error("Error updating employee:", error);
+                }
             }
-        }
 
-        async function deleteEmployee() {
-            const employeeId = prompt("Enter Employee ID to Delete:");
-            try {
-                const response = await fetch(`${apiUrl}/${employeeId}`, {
-                    method: "DELETE"
-                });
-                const data = await response.json();
-                console.log("Employee Deleted:", data);
-            } catch (error) {
-                console.error("Error deleting employee:", error);
+            async function deleteEmployee() {
+                const employeeId = prompt("Enter Employee ID to Delete:");
+                try {
+                    const response = await fetch(`${apiUrl}/${employeeId}`, {
+                        method: "DELETE",
+                    });
+                    const data = await response.json();
+                    console.log("Employee Deleted:", data);
+                } catch (error) {
+                    console.error("Error deleting employee:", error);
+                }
             }
-        }
 
-        async function getEmployeesByPreference() {
-            const dayOff = prompt("Enter preferred day off (e.g., Ponedeljak):");
-            const preferedShift = prompt("Enter preferred shift (prva or druga):");
-            const query = `?dayOff=${dayOff}&preferedShift=${preferedShift}`;
+            async function getEmployeesByPreference() {
+                const dayOff = prompt(
+                    "Enter preferred day off (e.g., Ponedeljak):"
+                );
+                const preferedShift = prompt(
+                    "Enter preferred shift (prva or druga):"
+                );
+                const query = `?dayOff=${dayOff}&preferedShift=${preferedShift}`;
 
-            try {
-                const response = await fetch(`${apiUrl}${query}`);
-                const data = await response.json();
-                console.log("Employees by Preference:", data);
-            } catch (error) {
-                console.error("Error fetching employees by preference:", error);
+                try {
+                    const response = await fetch(`${apiUrl}${query}`);
+                    const data = await response.json();
+                    console.log("Employees by Preference:", data);
+                } catch (error) {
+                    console.error(
+                        "Error fetching employees by preference:",
+                        error
+                    );
+                }
             }
-        }
-    </script>
-
-
-  </body>
+        </script>
+    </body>
 </html>
