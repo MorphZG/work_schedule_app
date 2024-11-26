@@ -24,14 +24,14 @@
         </div>
 
         <script>
-            const apiUrl = "http://localhost:5173/api/employees"; // Adjust according to your server setup
+            const apiUrl = "http://localhost:5000/api/employees"; // Adjust according to your server setup
 
             async function createEmployee() {
                 const employeeData = {
-                    fName: "John",
-                    lName: "Doe",
-                    email: "john.doe@example.com",
-                    cellphone: "1234567890",
+                    fName: prompt("first name?"),
+                    lName: prompt("last name?"),
+                    email: prompt("unique email"),
+                    cellphone: prompt("unique cellphone"),
                     preference: {
                         dayOff: "Ponedeljak",
                         preferedShift: "prva",

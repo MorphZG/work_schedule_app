@@ -53,6 +53,7 @@ export const updateEmployee = async (req, res) => {
 export const deleteEmployee = async (req, res) => {
   try {
     await Employee.findByIdAndDelete(req.params.id);
+    console.log(req.params.id)
     res.json({ message: "Employee deleted successfully" });
   } catch (error) {
     res.status(500).json({ message: error.message });
