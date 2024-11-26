@@ -1,60 +1,121 @@
----
-date:
-tags:
-  - webdev
-  - coding
-  - project
-title: Work schedule app
-type: project
-URL: https://github.com/MorphZG/upravljanje-radom-u-smjenama
----
+# Work Schedule Application
 
-# Work schedule app
+A full-stack web application for managing employee work schedules, built with modern web technologies.
 
-## General features
+## Tech Stack
 
-- select time period (weekly or monthly)
-- randomise the schedule
-- input preferences if some employee have special needs like free weekend or different working hours for particular day
-- track a very simple statistic about working hours
-- option for each employee to display a graph to see how many mondays he worked in a month, how many saturdays, how many fridays.... display a graph for each day of the week in a set time period, how many working hours he had on each day
-- option to build automatic schedule with balanced shifts so each employee have a fair number of working weekends
+### Frontend
+- React 18
+- Vite
+- TailwindCSS
+- Axios for API communication
 
-## Project plan
+### Backend
+- Node.js
+- Express
+- MongoDB with Mongoose
+- CORS enabled for frontend communication
 
-### Data Modeling and Database Setup
+## Features
 
-- Employees Collection: Store each employee's information (e.g., name, ID, role, preferences like free weekends or custom hours).
-- Schedule Collection: Each document represents a period (weekly/monthly), with fields for date range, list of shifts, employee assignments, etc.
-- Statistics Collection: Track data on how many shifts each employee has worked on specific days, hours worked, and so on.
+- Create and manage weekly/monthly work schedules
+- Randomize schedule generation
+- Set employee preferences (e.g., preferred days off, specific working hours)
+- Track working hours statistics
+- View employee-specific statistics (e.g., number of specific weekdays worked)
+- Automated schedule generation with fair weekend shift distribution
+- Real-time updates through REST API
 
-### Backend (Node.js + Express)
+## Getting Started
 
-#### API Endpoints:
+### Prerequisites
+- Node.js (Latest LTS version recommended)
+- MongoDB (Local installation or MongoDB Atlas account)
+- Git
 
-  - GET `/schedule/:period`: Fetches the schedule for a specific period (weekly/monthly).
-  - POST `/schedule`: Generates a new schedule, taking into account employee preferences and balanced weekend shifts.
-  - PUT `/preferences/:employeeId`: Allows updating employee preferences.
-  - GET `/statistics/:employeeId`: Fetches the specific statistics and weekday work frequency for an employee.
-  - POST `/randomize-schedule`: An endpoint to create a randomized schedule within the selected period.
+### Installation
 
-#### Logic for Balanced Scheduling:
+1. Clone the repository:
+```bash
+git clone https://github.com/MorphZG/work_schedule_app.git
+cd work_schedule_app
+```
 
-Use algorithms to ensure fair distribution of weekend shifts. Consider constraints like free days and shift preferences.
+2. Install backend dependencies:
+```bash
+cd backend
+npm install
+```
 
-### Frontend (React)
+3. Install frontend dependencies:
+```bash
+cd ../frontend/vite-project
+npm install
+```
 
-- Schedule Display: A calendar or table view with shifts for the selected period, showing which employee is assigned to each slot.
-- Statistics and Graphs: For each employee, provide a visual (e.g., bar chart or pie chart) showing days worked over the selected period. Libraries like `Chart.js` or `Recharts` would be useful here.
-- Preferences Form: A form where administrators can update employee preferences.
-- Schedule Generation and Randomization: Buttons for generating and randomizing the schedule, with a configuration panel to set the time period and specify balanced shifts.
+4. Set up environment variables:
+Create a `.env` file in the backend directory with the following variables:
+```
+MONGODB_URI=your_mongodb_connection_string
+PORT=3000
+```
 
-### Logic and Algorithms
+### Running the Application
 
-- Randomization & Balancing: Implement logic in the backend to randomly assign shifts but with balancing checks. This could be a mix of scheduling and optimization algorithms.
-- Statistics Calculation: Create functions to compute how many hours employees worked, and how frequently they worked on each weekday.
+1. Start the backend server:
+```bash
+cd backend
+npm run dev
+```
 
-### Testing & Iteration
+2. Start the frontend development server:
+```bash
+cd frontend/vite-project
+npm run dev
+```
 
-- Ensure that preferences and balanced shift algorithms are tested to meet fairness and flexibility requirements.
-- Implement validation checks to prevent schedule conflicts.
+The application will be available at:
+- Frontend: http://localhost:5173
+- Backend API: http://localhost:3000
+
+## API Endpoints
+
+### Schedules
+- `GET /schedule/:period` - Get schedule for specific period
+- `POST /schedule` - Create new schedule
+- `PUT /schedule/:id` - Update existing schedule
+
+### Employee Preferences
+- `PUT /preferences/:employeeId` - Update employee preferences
+- `GET /preferences/:employeeId` - Get employee preferences
+
+### Statistics
+- `GET /statistics/:employeeId` - Get employee work statistics
+- `GET /statistics/team` - Get team-wide statistics
+
+## Development
+
+### Code Quality
+The project uses:
+- ESLint for code linting
+- Prettier for code formatting
+- Vitest for testing
+
+Run quality checks:
+```bash
+npm run lint    # Check code style
+npm run format  # Format code
+npm run test    # Run tests
+```
+
+## Project Structure
+For detailed information about the project structure, see [dir_structure.md](./dir_structure.md)
+
+## API Documentation
+- Controllers: [controllers.md](./controllers.md)
+- Models: [models.md](./models.md)
+- Routes: [routes.md](./routes.md)
+
+## Contributing
+
+See [CONTRIBUTE.md](./contribute.md) for details on our code of conduct and the process for submitting pull requests.
