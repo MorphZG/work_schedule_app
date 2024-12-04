@@ -12,6 +12,7 @@ Thank you for considering contributing to this project! We welcome all contribut
   - [Branching Strategy](#branching-strategy)
     - [Github Flow model](#github-flow-model)
     - [How it works?](#how-it-works)
+    - [Commit messages](#commit-messages)
     - [Example](#example)
       - [Starting a New Feature](#starting-a-new-feature)
       - [Make Changes](#make-changes)
@@ -21,7 +22,6 @@ Thank you for considering contributing to this project! We welcome all contribut
       - [Merge](#merge)
     - [Why GitHub Flow?](#why-github-flow)
   - [Code Guidelines](#code-guidelines)
-  - [Commit Messages](#commit-messages)
   - [Submitting Your Contribution](#submitting-your-contribution)
 
 ---
@@ -56,12 +56,12 @@ npm list
 
 ## Set Up Environment
 
-If you open the `/.gitignore` file in the root of the project you will see listed `.env` file. `.env` files usually holds environment variables. Here is the list of important variables for both backend and front end. Consider this to be sensitive data.
+Both backend and frontend holds `.env.example` file. In both directories create `.env` file which will be ignored by git. Copy the variables from example file and insert the values. Consider this to be sensitive data.
 
 ```bash
-// mongoDB connection string
-MONGO_URI="mongodb+srv://your_username:your_password@cluster_url/db_name" # online cluster
-LOCALHOST="mongodb://127.0.0.1:27017/<database_name>" # localhost for development
+PORT=5000  # localhost port for express server
+MONGO_URI="mongodb+srv://<username>:<password>@<cluster_url>/db_name"  # online cluster
+LOCALHOST="mongodb://127.0.0.1:<port_number>/<db_name>"  # localhost for development
 ```
 
 To read the data from the `.env` files:
@@ -112,6 +112,56 @@ GitHub Flow is a lightweight, branch-based workflow for software development. It
 - Deploy immediately (optional)  
    - If you practice continuous deployment, changes can be deployed to production directly after merging into `main`.
 
+### Commit messages
+
+Use the following structure:
+
+```bash
+
+[type](optional content): [subject]
+
+[optional body, explain "why" and "what" instead of "how"]
+[resolves: issue_number]
+
+```
+
+>*TYPE*
+
+Choose one of the following *types* for your commits but feel free to include more appropriate type if you find it necessary:
+
+   - `build`: Changes to build process
+   - `docs`: Documentation changes
+   - `feat`: Introduction of new features
+   - `perf`: Enhance code performance
+   - `refactor`: Code changes without new features or fixes
+   - `revert`: Revert previous changes
+   - `style`: Markup, formatting, removal of whitespace...
+   - `test`: Adding missing tests
+
+>*OPTIONAL CONTENT*
+
+Provide *optional content* withing parentheses to add additional context, for example:
+
+```
+feat(parser): add the ability to parse arrays
+feat(authentication): Add Google auth
+feat(schedule): add ability to randomize employee schedule
+```
+
+>*SUBJECT*
+
+Start the subject line with lowercase letter. The subject should concisely describe the change. Use the imperative and present tense form: *change instead of changed or changes*, *remove instead of removed*...
+
+>*BODY*
+
+Similar to the subject, maintain imperative form. The body should explain the motivation behind the change and highlight any notable contrasts with previous behavior. Body should explain "what" and "why" instead of "how". If you resolved and list issue, include the issue number at the bottom. To include the optional body in commit message, separate the subject from the body with a blank line.
+
+```
+feat(UI): add basic UI
+
+Create dummy interface with simple buttons and forms. It will interact with backend API and fetch the database.
+Resolves: #132
+```
 ### Example
 
 #### Starting a New Feature
@@ -130,7 +180,7 @@ git checkout -b <branch_name>
 
 ```bash
 git add .
-git commit -m "feature: add user login functionality"
+git commit -m "feat: add user login functionality"
 ```
 
 #### Push the Branch
@@ -188,23 +238,6 @@ GitHub Flow is ideal for projects where you want to maintain a stable `main` bra
     npm run <script_name>
     ```
 
-## Commit Messages
-
-Use descriptive commit messages to make it easier to understand what changes were made. Follow this format:
-
-```
-[type]: [short description]
-
-[optional longer description or context]
-
-Resolves #[issue-number]
-```
-
-Examples:
-
--   `feature: add ability to randomize employee schedule`
--   `fix: resolve error in statistics endpoint`
--   `docs: update README with new API examples`
 
 ## Submitting Your Contribution
 
