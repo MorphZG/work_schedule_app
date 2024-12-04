@@ -5,7 +5,7 @@ const scheduleSchema = new mongoose.Schema(
   {
     period: {
       type: String,
-      enum: ["tjedno", "mjesecno"], // The time period for the schedule
+      enum: ["weekly", "monthly"], // The time period for the schedule
       required: true,
     },
     startDate: {
@@ -26,7 +26,7 @@ const scheduleSchema = new mongoose.Schema(
         },
         shiftType: {
           type: String,
-          enum: ["prva", "druga"],
+          enum: ["first", "second"],
           required: true,
         },
         startHour: String, // Start time for the shift

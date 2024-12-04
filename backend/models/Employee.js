@@ -9,18 +9,18 @@ const employeeSchema = new mongoose.Schema({
     dayOff: {
       type: String,
       enum: [
-        "Ponedeljak",
-        "Utorak",
-        "Srijeda",
-        "Cetvrtak",
-        "Petak",
-        "Subota",
-        "Nedjelja",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday",
       ],
     },
     preferedShift: {
       type: String,
-      enum: ["prva", "druga"],
+      enum: ["first", "second"],
     },
   },
 });
