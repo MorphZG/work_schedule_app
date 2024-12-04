@@ -5,9 +5,10 @@ import { connect_db } from "./config/database.js";
 import employeeRoutes from "./routes/employeeRoutes.js";
 import scheduleRoutes from "./routes/scheduleRoutes.js";
 import statsRoutes from "./routes/statsRoutes.js";
+import "dotenv/config";
 
 const app = express();
-const port = 5000;
+const port = process.env.PORT;
 
 // middleware
 app.use(cors());

@@ -54,10 +54,20 @@ npm install
 ```
 
 4. Set up environment variables:
-Create a `.env` file in the backend directory with the following variables:
+In both backend and frontend directories create `.env` file with environment variables. There is `.env.example` with example data.
+
+  - Backend variables
+
+```bash
+PORT=5000
+MONGO_URI="mongodb+srv://<username>:<password>@<cluster_url>/db_name"
+LOCALHOST="mongodb://127.0.0.1:<port_number>/<db_name>"
 ```
-MONGODB_URI=your_mongodb_connection_string
-PORT=3000
+
+  - Frontend variables
+
+```bash
+API_URL=<empty_string>
 ```
 
 ### Running the Application
