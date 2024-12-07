@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# script is writen by ChatGPT
+# review before execution
+
 # Function to display messages
 function print_message() {
     echo "-----------------------------------------"
