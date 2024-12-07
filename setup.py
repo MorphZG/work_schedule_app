@@ -1,3 +1,6 @@
+# script is writen by ChatGPT
+# review before execution
+
 import os
 import subprocess
 import sys
