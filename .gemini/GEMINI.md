@@ -1,0 +1,1 @@
+<!-- read ~/.gemini/docs/ for more info-->
