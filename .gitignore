@@ -24,3 +24,5 @@ logs
 node_modules
 .vscode
 .idea
+
+.gemini

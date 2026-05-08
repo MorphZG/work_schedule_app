@@ -1,0 +1,3 @@
+# Guidance for potential contributors
+
+Project is aimed at new web developers who lacks real word experience, looking to collaborate with others in a similar position. Using AI as a main engineer is against the main purpose and neglects the main outcome of the project. AI should serve as a productivity assistant instead of solution architect. Think for yourself, solve problems using your own creativity. Instead of focusing on the final product we should focus on gaining as much experience as possible. Focus on new knowledge and skills that will make you better developer. Ask questions, give advice, collaborate with others and results will come.
